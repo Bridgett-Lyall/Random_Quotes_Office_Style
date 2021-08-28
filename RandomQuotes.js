@@ -50,4 +50,4 @@ const firstRandomCharAndQuote = () => {
             break;
     }
 };
-console.log(firstRandomCharAndQuote());
+firstRandomCharAndQuote();
