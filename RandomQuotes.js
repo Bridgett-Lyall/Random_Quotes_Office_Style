@@ -11,43 +11,56 @@ const oscarQuotesArray = ['Angela\'s engaged to a gay man. As a gay man, I\'m ho
 const creedQuotesArray = ['I\'ve been involved in a number of cults, both as a leader and a follower. You have more fun as a follower. But you make more money as a leader.', 'Nobody steals from Creed Bratton and gets away with it. The last person to do this disappeared. His name: Creed Bratton.', 'I run a small fake I.D. company from my car with a laminating machine that I swiped from the sheriff’s station.', 'I sprout mung beans on a damp paper towel in my desk drawer. Very nutritious, but they smell like death.', 'What is wrong with this woman? She\'s asking about stuff that\'s nobody\'s business. What do I do? Really, what do I do here? I should\'ve written it down. Qua something, uh…qua…quar…quibo, qual…quir-qubity. Uabity assurance! No, no, no, no, no, but I\'m getting close.', 'Not bad for a day in the life of a dog food company.', 'You should see how many supplies I\'ve taken from this place. Honestly, I love stealing.'];
 const michaelQuotesArray = ['That\'s what she said!', 'Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.', 'Sometimes I\'ll start a sentence, and I don\'t even know where it\'s going. I just hope I find it along the way.', 'I love inside jokes. I hope to be a part of one someday.', 'I\'m not superstitious, but I am a little stitious.', 'And I knew exactly what to do. But in a much more real sense, I had no idea what to do.', 'The worst thing about prison was the dementors.', 'Presents are the best way to show how much you care. It\'s a tangible thing you can point at and say, \"Hey man, I love you. This many dollars worth.\"', 'Any man who says he totally understands women is a fool. Because they are un-understandable.', 'I would not miss it for the world. But if something else came up, I would definitely not go.', 'Reverse psychology is an awesome tool. I don’t know if you guys know about it, but, basically, you make someone think the opposite of what you believe. And that tricks them into doing something stupid. Works like a charm.', 'My mind is going a mile an hour.', 'It just seems awfully mean. But sometimes, the ends justify the mean.', 'Well, well, well, how the turntables.', 'You cheated on me? When I specifically asked you not to?', 'That has sort of an oaky afterbirth.', 'I… declare…. bankruptcy!'];
 const charactersArray = ['Phyllis', 'Pam', 'Stanley', 'Dwight', 'Jim', 'Angela', 'Kevin', 'Meredith', 'Darryl', 'Oscar', 'Creed'];
-const firstRandomChar = charactersArray[Math.floor(Math.random() * 11)];
+const getRandomChar = () => charactersArray[Math.floor(Math.random() * 11)];
 
-const firstRandomCharAndQuote = () => {
-    switch (firstRandomChar) {
+const randomCharAndQuote = (character) => {
+    switch (character) {
         case 'Phyllis':
-            console.log(`You are Phyllis today and as Phyllis says: ${phyllisQuotesArray[Math.floor(Math.random() * 5)]}`);
+            console.log(`Phyllis: ${phyllisQuotesArray[Math.floor(Math.random() * 5)]}`);
             break;
         case 'Pam':
-            console.log(`You are Pam today and as Pam says: ${pamQuotesArray[Math.floor(Math.random() * 5)]}`);
+            console.log(`Pam: ${pamQuotesArray[Math.floor(Math.random() * 5)]}`);
             break;
         case 'Stanley':
-            console.log(`You are Stanley today and as Stanley says: ${stanleyQuotesArray[Math.floor(Math.random() * 7)]}`);
+            console.log(`Stanley: ${stanleyQuotesArray[Math.floor(Math.random() * 7)]}`);
             break;
         case 'Dwight':
-            console.log(`You are Dwight today and as Dwight says: ${dwightQuotesArray[Math.floor(Math.random() * 9)]}`);
+            console.log(`Dwight: ${dwightQuotesArray[Math.floor(Math.random() * 9)]}`);
             break;
         case 'Jim':
-            console.log(`You are Jim today and as Jim says: ${jimQuotesArray[Math.floor(Math.random() * 7)]}`);
+            console.log(`Jim: ${jimQuotesArray[Math.floor(Math.random() * 7)]}`);
             break;
         case 'Angela':
-            console.log(`You are Angela today and as Angela says: ${angelaQuotesArray[Math.floor(Math.random() * 8)]}`);
+            console.log(`Angela: ${angelaQuotesArray[Math.floor(Math.random() * 8)]}`);
             break;
         case 'Kevin':
-            console.log(`You are Kevin today and as Kevin says: ${kevinQuotesArray[Math.floor(Math.random() * 9)]}`);
+            console.log(`Kevin: ${kevinQuotesArray[Math.floor(Math.random() * 9)]}`);
             break;
         case 'Meredith':
-            console.log(`You are Meredith today and as Meredith says: ${meredithQuotesArray[Math.floor(Math.random() * 11)]}`);
+            console.log(`Meredith: ${meredithQuotesArray[Math.floor(Math.random() * 11)]}`);
             break;
         case 'Darryl':
-            console.log(`You are Darryl today and as Darryl says: ${darrylQuotesArray[Math.floor(Math.random() * 9)]}`);
+            console.log(`Darryl: ${darrylQuotesArray[Math.floor(Math.random() * 9)]}`);
             break;
         case 'Oscar':
-            console.log(`You are Oscar today and as Oscar says: ${oscarQuotesArray[Math.floor(Math.random() * 11)]}`);
+            console.log(`Oscar: ${oscarQuotesArray[Math.floor(Math.random() * 11)]}`);
             break;
         case 'Creed':
-            console.log(`You are Creed today and as Creed says: ${creedQuotesArray[Math.floor(Math.random() * 7)]}`);
+            console.log(`Creed: ${creedQuotesArray[Math.floor(Math.random() * 7)]}`);
             break;
     }
+
 };
-firstRandomCharAndQuote();
+
+const printTwoChars = () => {
+    let firstChar = getRandomChar ();
+    let secondChar = getRandomChar ();
+    while (firstChar === secondChar) {
+        secondChar = getRandomChar ();
+    }
+    randomCharAndQuote (firstChar);
+    randomCharAndQuote (secondChar);
+    console.log(`Michael has made ${firstChar} and ${secondChar} share desks with each other for the day and has decided to offer them some life advice: ${michaelQuotesArray[Math.floor(Math.random() * 17)]}`);
+};
+
+printTwoChars();
